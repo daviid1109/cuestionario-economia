@@ -2,23 +2,48 @@ import streamlit as st
 import random
 import time
 
-# Configuración de la página con Tema Oscuro forzado
+# Configuración de la página
 st.set_page_config(
-    page_title="Trivia de Economía y Empresa",
-    page_icon="⚡",
+    page_title="La Empresa y sus Aspectos Económicos",
+    page_icon="📚",
     layout="centered"
 )
 
-# Estilos CSS personalizados para interfaz oscura profesional
+# Estilos CSS personalizados (Modo Oscuro)
 st.markdown("""
 <style>
-    /* Estilos globales en modo oscuro */
+    /* Estilos globales */
     .stApp {
         background-color: #0E1117;
         color: #FFFFFF;
     }
     
-    /* Botones de respuesta con estilo cyber */
+    /* Título reducido en tamaño */
+    .titulo-compacto {
+        font-size: 20px !important;
+        font-weight: 700;
+        color: #FFFFFF;
+        margin-bottom: 15px;
+        text-align: left;
+    }
+
+    /* Caja para enlace de Instagram compacto */
+    .ig-box {
+        background-color: #1E222D;
+        border: 1px solid #2E3440;
+        border-radius: 8px;
+        padding: 6px 10px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: 5px;
+    }
+    .ig-box a {
+        color: #00E676;
+        text-decoration: none;
+    }
+
+    /* Botones de respuesta */
     .stButton>button {
         background-color: #1E222D;
         color: #E0E0E0;
@@ -37,14 +62,13 @@ st.markdown("""
         box-shadow: 0px 0px 10px rgba(0, 230, 118, 0.2);
     }
 
-    /* Caja del Cronómetro */
+    /* Métricas */
     div[data-testid="stMetricValue"] {
-        font-size: 32px !important;
+        font-size: 24px !important;
         font-weight: bold;
         color: #FF5252;
     }
 
-    /* Tarjetas de estado */
     .stAlert {
         border-radius: 10px;
     }
@@ -360,7 +384,7 @@ cuestionario = [
     }
 ]
 
-# Inicialización del Estado de Juego
+# Inicialización del Estado
 if "juego_iniciado" not in st.session_state:
     st.session_state.juego_iniciado = False
 if "indice" not in st.session_state:
@@ -374,18 +398,10 @@ if "opciones" not in st.session_state:
 if "tiempo_inicio" not in st.session_state:
     st.session_state.tiempo_inicio = 0
 
-# Banner de la App
-st.image("https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop", use_container_width=True)
-st.title("⚡ Trivia: La Empresa y sus Aspectos Económicos")
+# Título pequeño
+st.markdown('<div class="titulo-compacto">La Empresa y sus Aspectos Económicos</div>', unsafe_allow_html=True)
 
-# Barra Lateral - Desarrollador con enlace corregido
-st.sidebar.title("👨‍💻 Desarrollador")
-st.sidebar.markdown("**David Solís**")
-st.sidebar.markdown("[📸 Sígueme en Instagram: @dav11d_s](https://instagram.com/dav11d_s)")
-st.sidebar.markdown("---")
-st.sidebar.caption("Plataforma interactiva de repaso académico.")
-
-# Pantalla de Configuración Inicial
+# Pantalla Inicial
 if not st.session_state.juego_iniciado:
     st.subheader("⚙️ Configura tu Partida")
     
@@ -404,49 +420,48 @@ if not st.session_state.juego_iniciado:
     
     st.info(f"⏱️ Tendrás **{st.session_state.tiempo_limite} segundos** por cada pregunta.")
     
-    if st.button("🚀 Comenzar Quiz", use_container_width=True):
+    if st.button("🚀 Comenzar", use_container_width=True):
         st.session_state.juego_iniciado = True
         st.session_state.preguntas = cuestionario.copy()
         random.shuffle(st.session_state.preguntas)
         st.session_state.tiempo_inicio = time.time()
         st.rerun()
 
-# Pantalla de Preguntas / Juego Activo
+# Pantalla de Juego
 else:
     total_preguntas = len(st.session_state.preguntas)
 
     if st.session_state.indice < total_preguntas:
         q = st.session_state.preguntas[st.session_state.indice]
         
-        # Cargar opciones aleatorias por pregunta
         if not st.session_state.opciones:
             opts = [q['correcta']] + q['incorrectas']
             random.shuffle(opts)
             st.session_state.opciones = opts
             st.session_state.tiempo_inicio = time.time()
 
-        # Cálculo dinámico del cronómetro en tiempo real
         tiempo_transcurrido = time.time() - st.session_state.tiempo_inicio
         tiempo_restante = max(0, int(st.session_state.tiempo_limite - tiempo_transcurrido))
 
-        # Encabezado del juego y cronómetro persistente
-        col_prog, col_time, col_pts = st.columns([2, 1, 1])
-        with col_prog:
-            st.caption(f"Pregunta {st.session_state.indice + 1} de {total_preguntas}")
-            st.progress((st.session_state.indice) / total_preguntas)
+        # Encabezado en una sola fila con 3 columnas: Tiempo, Puntos e Instagram
+        col_time, col_pts, col_ig = st.columns([1, 1, 1.2])
         with col_time:
             st.metric(label="⏱️ Tiempo", value=f"{tiempo_restante}s")
         with col_pts:
             st.metric(label="🎯 Puntos", value=st.session_state.puntaje)
+        with col_ig:
+            st.caption("👨‍💻 Creador")
+            st.markdown('<div class="ig-box">📸 <a href="https://instagram.com/dav11d_s" target="_blank">@dav11d_s</a></div>', unsafe_allow_html=True)
+
+        st.caption(f"Pregunta {st.session_state.indice + 1} de {total_preguntas}")
+        st.progress((st.session_state.indice) / total_preguntas)
 
         st.markdown(f"### {q['pregunta']}")
 
-        # Si se acaba el tiempo y no ha respondido
         if tiempo_restante == 0 and not st.session_state.respondido:
             st.session_state.respondido = True
             st.error("⏰ ¡Tiempo agotado! Se marcó como incorrecta.")
 
-        # Generación de Botones de Opción
         for opcion in st.session_state.opciones:
             if st.button(opcion, key=f"btn_{st.session_state.indice}_{opcion}", use_container_width=True, disabled=st.session_state.respondido):
                 st.session_state.respondido = True
@@ -456,7 +471,6 @@ else:
                 else:
                     st.error(f"❌ Incorrecto. La respuesta era: {q['correcta']}")
 
-        # Avanzar a la siguiente pregunta
         if st.session_state.respondido:
             st.markdown("---")
             if st.button("Siguiente Pregunta ➡️", use_container_width=True):
@@ -465,7 +479,6 @@ else:
                 st.session_state.opciones = []
                 st.rerun()
 
-        # Bucle de refresco para actualizar el reloj cada segundo mientras no responda
         elif tiempo_restante > 0:
             time.sleep(1)
             st.rerun()
