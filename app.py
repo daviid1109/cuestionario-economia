@@ -37,6 +37,10 @@ st.markdown("""
         font-size: 14px;
         font-weight: 600;
         margin-top: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
     }
     .ig-box a {
         color: #00E676;
@@ -443,15 +447,27 @@ else:
         tiempo_transcurrido = time.time() - st.session_state.tiempo_inicio
         tiempo_restante = max(0, int(st.session_state.tiempo_limite - tiempo_transcurrido))
 
-        # Encabezado en una sola fila con 3 columnas: Tiempo, Puntos e Instagram
-        col_time, col_pts, col_ig = st.columns([1, 1, 1.2])
-        with col_time:
-            st.metric(label="⏱️ Tiempo", value=f"{tiempo_restante}s")
-        with col_pts:
-            st.metric(label="🎯 Puntos", value=st.session_state.puntaje)
+        # Encabezado en una sola fila ordenado: Creador | Puntos | Tiempo
+        col_ig, col_pts, col_time = st.columns([1.2, 1, 1])
+        
         with col_ig:
             st.caption("👨‍💻 Creador")
-            st.markdown('<div class="ig-box">📸 <a href="https://instagram.com/dav11d_s" target="_blank">@dav11d_s</a></div>', unsafe_allow_html=True)
+            st.markdown('''
+                <div class="ig-box">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00E676" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                    <a href="https://instagram.com/dav11d_s" target="_blank">@dav11d_s</a>
+                </div>
+            ''', unsafe_allow_html=True)
+            
+        with col_pts:
+            st.metric(label="🎯 Puntos", value=st.session_state.puntaje)
+            
+        with col_time:
+            st.metric(label="⏱️ Tiempo", value=f"{tiempo_restante}s")
 
         st.caption(f"Pregunta {st.session_state.indice + 1} de {total_preguntas}")
         st.progress((st.session_state.indice) / total_preguntas)
