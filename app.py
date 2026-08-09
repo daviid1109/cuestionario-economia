@@ -525,7 +525,7 @@ else:
             
             if sel == q['correcta']:
                 st.markdown(f'<div class="card-correcta">{q["correcta"]}</div>', unsafe_allow_html=True)
-                audio_res = texto_a_audio(f"¡oficial! {q['correcta']}")
+                audio_res = texto_a_audio(f"¡oooficial, esa misma es! {q['correcta']}")
                 reproducir_audio_rapido(audio_res, velocidad=1.5)
 
             elif sel is not None:
