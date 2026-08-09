@@ -535,9 +535,9 @@ else:
                 reproducir_audio_rapido(audio_res, velocidad=1.5)
 
             else:
-                st.markdown('<div class="card-incorrecta">⏰ ¡Tiempo Agotado!</div>', unsafe_allow_html=True)
+                st.markdown('<div class="card-incorrecta">⏰ ¡piensa mas rapido cara de nance!</div>', unsafe_allow_html=True)
                 st.markdown(f'<div class="card-correcta">{q["correcta"]}</div>', unsafe_allow_html=True)
-                audio_res = texto_a_audio(f"Se agotó el tiempo. La respuesta correcta es: {q['correcta']}")
+                audio_res = texto_a_audio(f"muy lento. La respuesta correcta es: {q['correcta']}")
                 reproducir_audio_rapido(audio_res, velocidad=1.5)
 
             st.markdown("---")
