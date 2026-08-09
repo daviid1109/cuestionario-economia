@@ -47,7 +47,7 @@ st.markdown("""
         text-decoration: none;
     }
 
-    /* Botones de respuesta */
+    /* Botones de respuesta predeterminados */
     .stButton>button {
         background-color: #1E222D;
         color: #E0E0E0;
@@ -64,6 +64,33 @@ st.markdown("""
         border-color: #00E676;
         color: #FFFFFF;
         box-shadow: 0px 0px 10px rgba(0, 230, 118, 0.2);
+    }
+
+    /* Tarjetas de respuesta visuales tras responder */
+    .card-correcta {
+        background-color: #00E676;
+        color: #000000;
+        border: 2px solid #00E676;
+        border-radius: 12px;
+        padding: 18px 22px;
+        font-weight: 700;
+        font-size: 17px;
+        margin-bottom: 12px;
+        transform: scale(1.03);
+        box-shadow: 0px 0px 20px rgba(0, 230, 118, 0.5);
+        transition: all 0.3s ease;
+    }
+
+    .card-incorrecta {
+        background-color: #FF5252;
+        color: #FFFFFF;
+        border: 2px solid #FF5252;
+        border-radius: 12px;
+        padding: 16px 20px;
+        font-weight: 600;
+        font-size: 16px;
+        margin-bottom: 12px;
+        box-shadow: 0px 0px 12px rgba(255, 82, 82, 0.4);
     }
 
     /* Métricas */
@@ -397,6 +424,8 @@ if "puntaje" not in st.session_state:
     st.session_state.puntaje = 0
 if "respondido" not in st.session_state:
     st.session_state.respondido = False
+if "opcion_seleccionada" not in st.session_state:
+    st.session_state.opcion_seleccionada = None
 if "opciones" not in st.session_state:
     st.session_state.opciones = []
 if "tiempo_inicio" not in st.session_state:
@@ -474,30 +503,50 @@ else:
 
         st.markdown(f"### {q['pregunta']}")
 
+        # Si se agota el tiempo
         if tiempo_restante == 0 and not st.session_state.respondido:
             st.session_state.respondido = True
-            st.error("⏰ ¡Tiempo agotado! Se marcó como incorrecta.")
+            st.session_state.opcion_seleccionada = None
 
-        for opcion in st.session_state.opciones:
-            if st.button(opcion, key=f"btn_{st.session_state.indice}_{opcion}", use_container_width=True, disabled=st.session_state.respondido):
-                st.session_state.respondido = True
-                if opcion == q['correcta']:
-                    st.success("✅ ¡Respuesta Correcta!")
-                    st.session_state.puntaje += 1
-                else:
-                    st.error(f"❌ Incorrecto. La respuesta era: {q['correcta']}")
+        # SI AÚN NO HA RESPONDIDO: Muestra los botones normales
+        if not st.session_state.respondido:
+            for opcion in st.session_state.opciones:
+                if st.button(opcion, key=f"btn_{st.session_state.indice}_{opcion}", use_container_width=True):
+                    st.session_state.respondido = True
+                    st.session_state.opcion_seleccionada = opcion
+                    if opcion == q['correcta']:
+                        st.session_state.puntaje += 1
+                    st.rerun()
 
-        if st.session_state.respondido:
+            if tiempo_restante > 0:
+                time.sleep(1)
+                st.rerun()
+
+        # SI YA RESPONDDIÓ O SE AGOTÓ EL TIEMPO:
+        else:
+            sel = st.session_state.opcion_seleccionada
+            
+            # Caso 1: La respuesta elegida fue CORRECTA
+            if sel == q['correcta']:
+                st.markdown(f'<div class="card-correcta">{q["correcta"]}</div>', unsafe_allow_html=True)
+            
+            # Caso 2: La respuesta elegida fue INCORRECTA
+            elif sel is not None:
+                st.markdown(f'<div class="card-incorrecta">{sel}</div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="card-correcta">{q["correcta"]}</div>', unsafe_allow_html=True)
+            
+            # Caso 3: Se agotó el tiempo
+            else:
+                st.markdown('<div class="card-incorrecta">⏰ ¡Tiempo Agotado!</div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="card-correcta">{q["correcta"]}</div>', unsafe_allow_html=True)
+
             st.markdown("---")
             if st.button("Siguiente Pregunta ➡️", use_container_width=True):
                 st.session_state.indice += 1
                 st.session_state.respondido = False
+                st.session_state.opcion_seleccionada = None
                 st.session_state.opciones = []
                 st.rerun()
-
-        elif tiempo_restante > 0:
-            time.sleep(1)
-            st.rerun()
 
     # Pantalla Final
     else:
