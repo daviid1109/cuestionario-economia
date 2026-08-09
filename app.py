@@ -3,6 +3,7 @@ import random
 import time
 from gtts import gTTS
 import io
+import base64
 
 # Configuración de la página
 st.set_page_config(
@@ -90,13 +91,29 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Función para convertir texto a audio
+# Función para generar audio en gTTS
 def texto_a_audio(texto):
-    tts = gTTS(text=texto, lang='es')
+    tts = gTTS(text=texto, lang='es', slow=False)
     fp = io.BytesIO()
     tts.write_to_fp(fp)
     fp.seek(0)
     return fp
+
+# Función para reproducir el audio acelerado a 1.5x
+def reproducir_audio_rapido(audio_bytes, velocidad=1.5):
+    b64 = base64.b64encode(audio_bytes.read()).decode()
+    md = f"""
+        <audio id="audio_tag" autoplay style="display:none;">
+            <source src="data:audio/mp3;base64,{b64}" type="audio/mp3">
+        </audio>
+        <script>
+            var audio = document.getElementById("audio_tag");
+            if (audio) {{
+                audio.playbackRate = {velocidad};
+            }}
+        </script>
+    """
+    st.components.v1.html(md, height=0)
 
 cuestionario = [
     {
@@ -481,16 +498,15 @@ else:
 
         st.markdown(f"### {q['pregunta']}")
 
-        # Si aún no ha respondido, reproduce la pregunta de una vez
+        # Reproduce la pregunta acelerada a 1.5x
         if not st.session_state.respondido:
             audio_pregunta = texto_a_audio(q['pregunta'])
-            st.audio(audio_pregunta, format='audio/mp3', autoplay=True)
+            reproducir_audio_rapido(audio_pregunta, velocidad=1.5)
 
         if tiempo_restante == 0 and not st.session_state.respondido:
             st.session_state.respondido = True
             st.session_state.opcion_seleccionada = None
 
-        # Mientras no responda
         if not st.session_state.respondido:
             for opcion in st.session_state.opciones:
                 if st.button(opcion, key=f"btn_{st.session_state.indice}_{opcion}", use_container_width=True):
@@ -504,26 +520,25 @@ else:
                 time.sleep(1)
                 st.rerun()
 
-        # Al responder o agotarse el tiempo
         else:
             sel = st.session_state.opcion_seleccionada
             
             if sel == q['correcta']:
                 st.markdown(f'<div class="card-correcta">{q["correcta"]}</div>', unsafe_allow_html=True)
                 audio_res = texto_a_audio(f"¡Correcto! {q['correcta']}")
-                st.audio(audio_res, format='audio/mp3', autoplay=True)
+                reproducir_audio_rapido(audio_res, velocidad=1.5)
 
             elif sel is not None:
                 st.markdown(f'<div class="card-incorrecta">{sel}</div>', unsafe_allow_html=True)
                 st.markdown(f'<div class="card-correcta">{q["correcta"]}</div>', unsafe_allow_html=True)
                 audio_res = texto_a_audio(f"Incorrecto. La respuesta correcta es: {q['correcta']}")
-                st.audio(audio_res, format='audio/mp3', autoplay=True)
+                reproducir_audio_rapido(audio_res, velocidad=1.5)
 
             else:
                 st.markdown('<div class="card-incorrecta">⏰ ¡Tiempo Agotado!</div>', unsafe_allow_html=True)
                 st.markdown(f'<div class="card-correcta">{q["correcta"]}</div>', unsafe_allow_html=True)
                 audio_res = texto_a_audio(f"Se agotó el tiempo. La respuesta correcta es: {q['correcta']}")
-                st.audio(audio_res, format='audio/mp3', autoplay=True)
+                reproducir_audio_rapido(audio_res, velocidad=1.5)
 
             st.markdown("---")
             if st.button("Siguiente Pregunta ➡️", use_container_width=True):
@@ -542,7 +557,7 @@ else:
         
         texto_final = f"Has completado el cuestionario con un puntaje de {st.session_state.puntaje} de {total_preguntas}."
         audio_final = texto_a_audio(texto_final)
-        st.audio(audio_final, format='audio/mp3', autoplay=True)
+        reproducir_audio_rapido(audio_final, velocidad=1.5)
 
         if st.button("🔄 Jugar de Nuevo", use_container_width=True):
             st.session_state.clear()
