@@ -115,311 +115,312 @@ def reproducir_audio_rapido(audio_bytes, velocidad=1.5):
     """
     st.components.v1.html(md, height=0)
 
+# Cuestionario actualizado con las 34 preguntas del documento
 cuestionario = [
     {
         "pregunta": "¿Qué es la economía?",
-        "correcta": "La forma en que la sociedad organiza recursos escasos para cubrir necesidades humanas.",
+        "correcta": "Es la ciencia que estudia la asignación de recursos limitados para satisfacer necesidades humanas ilimitadas.",[span_2](start_span)[span_2](end_span)
         "incorrectas": [
-            "El cálculo exclusivo de matemáticas financieras y tasas de interés en bancos privados.",
-            "El sistema estatal para fiscalizar cobros de impuestos y aranceles a particulares.",
-            "Las estrategias comerciales aplicadas únicamente por empresas transnacionales."
+            "El estudio exclusivo de la emisión de dinero y transacciones bancarias.",
+            "La ciencia encargada de controlar los precios del mercado de forma estatal.",
+            "El conjunto de leyes contables que regulan a las corporaciones financieras."
         ]
     },
     {
         "pregunta": "¿Qué es la economía de la empresa?",
-        "correcta": "El conjunto de criterios técnicos aplicados dentro del negocio para optimizar decisiones.",
+        "correcta": "Estudia la combinación de factores limitados para la producción de bienes y servicios a fin de maximizar beneficios.",[span_3](start_span)[span_3](end_span)
         "incorrectas": [
-            "La legislación laboral gubernamental que fija los salarios mínimos de empleados.",
-            "La gestión administrativa orientada solo al pago de nóminas y reclutamiento interno.",
-            "El análisis de transacciones financieras internacionales entre bloques económicos."
+            "El sistema de auditoría tributaria gubernamental sobre los comercios.",
+            "La rama jurídica encargada del cumplimiento de las normativas de trabajo.",
+            "La gestión enfocada únicamente en el reclutamiento y salario de personal."
         ]
     },
     {
         "pregunta": "¿Cómo definirías una empresa?",
-        "correcta": "Una organización que combina factores productivos para crear bienes y generar beneficio.",
+        "correcta": "Unidad económica de producción que combina factores bajo condición de riesgo para producir bienes y maximizar beneficios.",[span_4](start_span)[span_4](end_span)
         "incorrectas": [
-            "Una entidad sin fines de lucro enfocada exclusivamente al desarrollo de obras comunitarias.",
-            "Un espacio físico destinado únicamente al almacenamiento de mercancía importada.",
-            "Una institución gubernamental dedicada a regular la administración de recursos públicos."
+            "Una organización estatal dedicada a la recolección de impuestos directos.",
+            "Un espacio dedicado exclusivamente al resguardo de insumos importados.",
+            "Una entidad comunitaria sin fines de lucro enfocada en obras públicas."
         ]
     },
     {
-        "pregunta": "¿Cuáles son los factores que intervienen en la empresa?",
-        "correcta": "Capital, trabajo y recursos naturales, coordinados por la dirección de la entidad.",
+        "pregunta": "¿Qué factores intervienen en la empresa?",
+        "correcta": "Factores humanos, factores materiales, organización y entorno.",[span_5](start_span)[span_5](end_span)
         "incorrectas": [
-            "Estrategias de ventas, canales de distribución y campañas de publicidad digital.",
-            "Entidades bancarias, clientes recurrentes y competidores directos del mercado.",
-            "Normativas fiscales, impuestos municipales y acuerdos de comercio exterior."
+            "Campañas publicitarias, canales de venta y estrategias de marketing.",
+            "Entidades bancarias, clientes ocasionales y competidores del sector.",
+            "Normativas fiscales, aranceles aduaneros y registros comerciales."
         ]
     },
     {
         "pregunta": "¿Qué agentes intervienen en la empresa?",
-        "correcta": "Agentes internos (dueños, gerentes, personal) y externos (clientes, proveedores, Estado).",
+        "correcta": "Acreedores, clientes, proveedores, dirección, personal y accionistas.",[span_6](start_span)[span_6](end_span)
         "incorrectas": [
-            "Únicamente los accionistas mayoritarios y directores ejecutivos generales.",
-            "Exclusivamente los consumidores finales y los inspectores tributarios estatales.",
-            "Auditores contables independientes y firmas consultoras de gestión de marca."
+            "Únicamente los socios fundadores y gerentes ejecutivos.",
+            "Exclusivamente los compradores locales e inspectores fiscales.",
+            "Auditores de calidad externos y consultores independientes."
         ]
     },
     {
         "pregunta": "¿Qué diferencias hay entre entorno general y específico?",
-        "correcta": "El general afecta a toda la economía; el específico incide solo en el sector particular.",
+        "correcta": "El entorno general afecta a todas las empresas; el específico afecta de forma relevante a una empresa en particular.",[span_7](start_span)[span_7](end_span)
         "incorrectas": [
-            "El general abarca el territorio nacional; el específico se limita al área administrativa.",
-            "El general lo controla el fundador; el específico lo ejecutan los colaboradores.",
-            "El general varía diariamente; el específico permanece inalterable en el tiempo."
+            "El general abarca el país entero y el específico la ciudad del local.",
+            "El general es manejado por el dueño y el específico por los empleados.",
+            "El general no varía nunca y el específico cambia todos los días."
         ]
     },
     {
-        "pregunta": "¿Cuántas empresas hay en Panamá aprox. y qué porcentaje representan las MIPYMES?",
-        "correcta": "Entre 55,000 y 60,000 empresas registradas, de las cuales el 92%-96% son MIPYMES.",
+        "pregunta": "Aproximadamente, ¿Cuántas empresas hay en España? ¿Qué porcentaje aproximado son PYMES?",
+        "correcta": "Aproximadamente 2,88 millones de empresas, de las cuales 1,32 millones son PYMES (45%).",[span_8](start_span)[span_8](end_span)
         "incorrectas": [
-            "Aproximadamente 3.3 millones de negocios, de los cuales el 99.8% son grandes firmas.",
-            "Alrededor de 500,000 comercios, registrando que solo el 50% pertenecen a PYMES.",
-            "Cerca de 10,000 entidades, donde la presencia de las MIPYMES representa el 20%."
+            "Cerca de 5 millones de empresas, de las cuales el 90% son PYMES.",
+            "Alrededor de 1 millón de entidades, registrando solo un 20% de PYMES.",
+            "Aproximadamente 500,000 comercios, donde el 75% representan PYMES."
         ]
     },
     {
-        "pregunta": "¿Es lo mismo un empresario, un accionista y un emprendedor?",
-        "correcta": "No: el emprendedor crea el negocio, el accionista aporta capital y el empresario gestiona.",
+        "pregunta": "¿Es lo mismo un empresario que un accionista y que un emprendedor?",
+        "correcta": "No: el empresario directivo asume riesgo profesional, el accionista riesgo patrimonial y el emprendedor suele asumir ambos al crear la firma.",[span_9](start_span)[span_9](end_span)
         "incorrectas": [
-            "Sí, corresponden a términos conceptualmente idénticos para denominar la misma figura.",
-            "No: el empresario es un trabajador operativo y el accionista es el cliente habitual.",
-            "No: el emprendedor es un funcionario público y el accionista labora en la banca."
+            "Sí, representan términos exactos para denominar el mismo cargo.",
+            "No: el empresario es operario y el accionista es cliente frecuente.",
+            "No: el emprendedor es servidor público y el accionista es directivo."
         ]
     },
     {
         "pregunta": "¿Cuáles son las principales funciones de la Dirección de una empresa?",
-        "correcta": "Planificar la estrategia global, organizar recursos, liderar personal y controlar la gestión.",
+        "correcta": "Planificación, gestión, organización/coordinación y control.",[span_10](start_span)[span_10](end_span)
         "incorrectas": [
-            "Adquirir inventario, mantener el aseo operativo de la planta y procesar llamadas.",
-            "Liquidar tributos públicos, solicitar registros comerciales y tramitar préstamos.",
-            "Elaborar identidades gráficas, gestionar redes sociales y realizar ventas directas."
+            "Adquisición de mercancía, aseo de planta y atención telefónica.",
+            "Trámite de patentes, cobro de facturas y pago de planillas.",
+            "Diseño de marca, publicidad digital y despacho de productos."
         ]
     },
     {
         "pregunta": "¿Qué es el costo de oportunidad?",
-        "correcta": "El rendimiento o beneficio que se renuncia al descartar una alternativa económica.",
+        "correcta": "El valor de otros bienes y servicios a los que se debe renunciar para obtenerlos.",[span_11](start_span)[span_11](end_span)
         "incorrectas": [
-            "La rebaja especial negociada con un distribuidor por volumen de compra.",
-            "La carga total de impuestos devengados al cierre del ejercicio contable.",
-            "El valor de venta fijado con el propósito de superar la competencia."
+            "El descuento obtenido por la compra masiva de inventario.",
+            "El monto global pagado por concepto de impuestos de venta.",
+            "El margen bruto asignado a un producto para la venta al público."
         ]
     },
     {
         "pregunta": "¿Cuál es la relación entre la economía y sus costos?",
-        "correcta": "La economía busca el uso eficiente de recursos y los costos cuantifican ese consumo.",
+        "correcta": "Los costos controlan la producción de bienes/servicios y la economía estudia las fuentes de riqueza para producir.",[span_12](start_span)[span_12](end_span)
         "incorrectas": [
-            "La economía procura incrementar costos operacionales para maximizar la facturación.",
-            "Los costos dependen exclusivamente de decretos oficiales e ignoran la economía.",
-            "No existe vinculación conceptual entre el análisis económico y la estructura de costos."
+            "La economía eleva los costos para aumentar la recaudación fiscal.",
+            "Los costos sustituyen las decisiones de la economía de mercado.",
+            "No guardan relación alguna en la toma de decisiones contables."
         ]
     },
     {
         "pregunta": "¿Qué es la contabilidad financiera?",
-        "correcta": "El sistema que registra transacciones monetarias para reflejar el estado patrimonial.",
+        "correcta": "Técnica que produce información financiera valuada en términos monetarios sobre las operaciones de una entidad.",[span_13](start_span)[span_13](end_span)
         "incorrectas": [
-            "La lista de procedimientos operativos diarios asignados a los trabajadores.",
-            "El expediente donde se archivan los historiales académicos del personal.",
-            "El cálculo técnico ejecutado para determinar el margen de precio al consumidor."
+            "Listado de tareas operativas diarias asignadas a la planilla.",
+            "Manual interno para el control de inventario y bodega.",
+            "Fórmula matemática para fijar el precio final de los insumos."
         ]
     },
     {
         "pregunta": "¿Cuáles son los principales objetivos de la contabilidad de costos?",
-        "correcta": "Determinar costos de producción, fijar precios de venta y controlar el gasto interno.",
+        "correcta": "Determinar costo unitario, generar información de control, aportar a presupuestos y eficientar recursos.",[span_14](start_span)[span_14](end_span)
         "incorrectas": [
-            "Reducir las remuneraciones salariales del personal operativo de la organización.",
-            "Expandir la capacidad de endeudamiento bancario a través de líneas crediticias.",
-            "Desarrollar planes promocionales para campañas publicitarias institucionales."
+            "Disminuir los salarios de la planilla administrativa de la empresa.",
+            "Aumentar las deudas crediticias con bancos e instituciones.",
+            "Crear campañas de publicidad e imagen para el consumidor final."
         ]
     },
     {
         "pregunta": "¿Cuáles son las funciones económicas de una empresa industrial?",
-        "correcta": "Transformar materia prima en bienes finales, crear puestos de trabajo y aportar valor.",
+        "correcta": "Comprar, transformar, producir, distribuir y administrar.",[span_15](start_span)[span_15](end_span)
         "incorrectas": [
-            "Comercializar productos importados sin realizar modificaciones en su estructura.",
-            "Ofrecer intermediación financiera e intermediar préstamos a la comunidad.",
-            "Gestionar el traslado masivo de pasajeros dentro del territorio nacional."
+            "Importar mercancía terminada sin modificar su estructura.",
+            "Otorgar servicios bancarios y crédito a la comunidad.",
+            "Brindar transporte y logística de pasajeros a nivel nacional."
         ]
     },
     {
         "pregunta": "¿Qué son los estados financieros?",
-        "correcta": "Documentos oficiales que sintetizan la situación económica, activos y deudas de la entidad.",
+        "correcta": "Informes derivados de la aplicación de la contabilidad a las operaciones económicas realizadas por la empresa.",[span_16](start_span)[span_16](end_span)
         "incorrectas": [
-            "Los contratos laborales suscritos entre la administración y los empleados.",
-            "Los recibos de servicios públicos acumulados pendientes de cancelación.",
-            "Las normativas comerciales promulgadas por las autoridades de la nación."
+            "Los contratos celebrados entre la empresa y el personal laboral.",
+            "Los comprobantes de pago de servicios públicos de la planta.",
+            "Leyes aprobadas por el Estado en materia comercial e industrial."
         ]
     },
     {
         "pregunta": "¿Qué es gasto?",
-        "correcta": "Desembolso operativo para mantener la estructura general que no se recupera directamente.",
+        "correcta": "Erogación necesaria para la operación de la empresa cuyo monto afecta a los resultados.",[span_17](start_span)[span_17](end_span)
         "incorrectas": [
-            "Recurso destinado a materia prima que se reabsorbe con la venta del producto.",
-            "Fondo financiero mantenido en cuentas bancarias a plazo fijo institucional.",
-            "El dividendo neto que se distribuye periódicamente entre los inversionistas."
+            "Inversión directa en materia prima recuperable mediante la venta.",
+            "Ahorro acumulado por la empresa en cuentas bancarias a plazo.",
+            "Ganancia distribuida entre los socios al cierre del periodo fiscal."
         ]
     },
     {
         "pregunta": "¿Qué es costo?",
-        "correcta": "Erogación vinculada directamente a la producción que se recupera mediante la venta.",
+        "correcta": "Inversión en recursos que son recuperables por los ingresos o ventas.",[span_18](start_span)[span_18](end_span)
         "incorrectas": [
-            "Monto económico utilizado para la cancelación de sanciones administrativas.",
-            "Inversión publicitaria efectuada en medios de difusión masiva tradicionales.",
-            "Cualquier quebranto financiero fortuito sufrido dentro del período fiscal."
+            "Desembolso irrecuperable asignado a sanciones administrativas.",
+            "Cualquier gasto operativo general destinado a la administración.",
+            "Pérdida monetaria imprevista registrada en el ejercicio económico."
         ]
     },
     {
-        "pregunta": "¿Qué funciones realiza la empresa en el mercado?",
-        "correcta": "Asumir riesgos, fomentar empleo, impulsar la innovación y coordinar la producción.",
+        "pregunta": "¿Cuáles son las cuatro funciones que la empresa realiza en el mercado?",
+        "correcta": "Acercar oferta y demanda, realizar cálculo económico, entregar bienes a tiempo e informar mediante comunicación comercial.",[span_19](start_span)[span_19](end_span)
         "incorrectas": [
-            "Establecer la estructura arancelaria y fiscalizar las escalas salariales.",
-            "Determinar el tipo de cambio oficial de la divisa de circulación nacional.",
-            "Conceder financiamiento a instituciones extranjeras sin aplicación de interés."
+            "Regular impuestos, controlar salarios, fijar tasas y fiscalizar.",
+            "Establecer la moneda oficial, otorgar subsidios, pedir préstamos y vender.",
+            "Exportar materias primas, auditar bancos, fijar aranceles y sancionar."
         ]
     },
     {
         "pregunta": "¿Qué es la política comercial?",
-        "correcta": "El conjunto de medidas estatales para regular las transacciones comerciales internas y externas.",
+        "correcta": "Conjunto de iniciativas del gobierno de un país sobre comercio internacional (importaciones y exportaciones).",[span_20](start_span)[span_20](end_span)
         "incorrectas": [
-            "El estatuto interno relativo al código de vestimenta del personal corporativo.",
-            "El reglamento de contrataciones para el alquiler de instalaciones comerciales.",
-            "La ley de amparo laboral aprobada por la asamblea legislativa del Estado."
+            "El reglamento de vestimenta e imagen corporativa del negocio.",
+            "El contrato de arrendamiento firmado para el local comercial.",
+            "La estrategia de la empresa para capacitar al personal de ventas."
         ]
     },
     {
         "pregunta": "¿Qué es el comercio internacional?",
-        "correcta": "El intercambio de bienes, servicios o capitales entre diferentes países o economías.",
+        "correcta": "Proceso de intercambio de bienes y servicios entre países (importaciones y exportaciones).",[span_21](start_span)[span_21](end_span)
         "incorrectas": [
-            "La distribución de productos dentro de los límites de una provincia determinada.",
-            "La permuta informal de artículos realizada exclusivamente entre residentes locales.",
-            "Las operaciones de crédito ejecutadas entre el banco central y la banca comercial."
+            "El intercambio de productos dentro de una misma provincia.",
+            "La venta minorista realizada en ferias locales y municipales.",
+            "Las transferencias de dinero entre bancos centrales de un país."
         ]
     },
     {
         "pregunta": "¿Cuál es el objetivo principal de una empresa?",
-        "correcta": "Generar rentabilidad económica asegurando la sostenibilidad y satisfacción del cliente.",
+        "correcta": "Maximizar sus beneficios económicos, garantizar su supervivencia, crecimiento y responsabilidad social.",[span_22](start_span)[span_22](end_span)
         "incorrectas": [
-            "Transferir la totalidad de ingresos monetarios a instituciones de beneficencia.",
-            "Maximizar la fabricación de mercancía descartando la demanda del mercado.",
-            "Prescindir de la contratación de personal para eliminar costos operativos."
+            "Donar la totalidad de sus ganancias a instituciones benéficas.",
+            "Producir mercancía sin tomar en consideración la demanda actual.",
+            "Evitar la contratación de empleados para no generar egresos."
         ]
     },
     {
         "pregunta": "¿Qué diferencia hay entre costes fijos y variables?",
-        "correcta": "Los fijos se mantienen independientes del volumen; los variables cambian según la producción.",
+        "correcta": "Los fijos no cambian con el nivel de producción; los variables fluctúan directamente según la cantidad producida.",[span_23](start_span)[span_23](end_span)
         "incorrectas": [
-            "Los fijos son financiados por el sector público y los variables por el consumidor.",
-            "Los fijos fluctúan mensualmente y los variables permanecen estables por años.",
-            "Los fijos responden a gastos de mercadeo y los variables al pago de planillas."
+            "Los fijos los paga el gobierno y los variables los paga el cliente.",
+            "Los fijos cambian cada mes y los variables no cambian nunca.",
+            "Los fijos son de mercadeo y los variables corresponden a salarios."
         ]
     },
     {
         "pregunta": "¿Qué representa el entorno empresarial?",
-        "correcta": "El conjunto de factores internos y externos que condicionan el desarrollo del negocio.",
+        "correcta": "El conjunto de factores externos (políticos, económicos, sociales, tecnológicos) que afectan las decisiones de la organización.",[span_24](start_span)[span_24](end_span)
         "incorrectas": [
-            "El espacio físico o área geográfica sobre la cual se construye la infraestructura.",
-            "La estructura gráfica que ilustra las jerarquías de los directivos corporativos.",
-            "El compendio normativo de políticas de convivencia aplicable a colaboradores."
+            "El terreno físico y la estructura sobre la cual opera el local.",
+            "El organigrama que detalla las jerarquías directivas del negocio.",
+            "El código de convivencia estipulado para los trabajadores."
         ]
     },
     {
         "pregunta": "¿Qué es la cuota de mercado?",
-        "correcta": "El porcentaje de ventas que representa una empresa frente al total de su sector.",
+        "correcta": "Porcentaje de ventas de un producto o servicio que tiene una empresa respecto al total vendido en ese mercado.",[span_25](start_span)[span_25](end_span)
         "incorrectas": [
-            "La comisión amortizable pagada al banco por concepto de préstamos contratados.",
-            "El tope regulatorio impuesto por el Estado para productos de primera necesidad.",
-            "La comisión otorgada a los representantes comerciales sobre sus transacciones."
+            "El pago mensual que se liquida por créditos en entidades bancarias.",
+            "El limite de producción regulado por la autoridad de comercio.",
+            "La comisión asignada a los vendedores por cerrar ventas directas."
         ]
     },
     {
         "pregunta": "¿Qué es un mercado?",
-        "correcta": "El espacio físico o virtual en que compradores y vendedores negocian intercambio de bienes.",
+        "correcta": "Espacio físico o virtual donde se encuentran compradores (demanda) y vendedores (oferta) para realizar intercambios.",[span_26](start_span)[span_26](end_span)
         "incorrectas": [
-            "La instalación comercial dedicada a la venta al por menor de víveres generales.",
-            "La bóveda gubernamental destinada al resguardo de reservas monetarias del país.",
-            "El software de gestión utilizado para la emisión automatizada de facturación."
+            "Un establecimiento enfocado a la venta exclusiva de alimentos.",
+            "La caja fuerte de un banco destinada al resguardo de dinero.",
+            "El sistema digital utilizado para generar facturación electrónica."
         ]
     },
     {
         "pregunta": "¿Qué es la competencia perfecta?",
-        "correcta": "Un mercado con múltiples oferentes y demandantes con productos homogéneos sin control de precio.",
+        "correcta": "Estructura teórica con muchos compradores y vendedores, productos idénticos, información perfecta y sin barreras.",[span_27](start_span)[span_27](end_span)
         "incorrectas": [
-            "Una estructura donde una firma controla la oferta total sin alternativas directas.",
-            "Un conflicto tarifario destructivo que genera el quiebre masivo de competidores.",
-            "Un convenio privado pactado entre empresas líderes para elevar precios de venta."
+            "Mercado dominado por una sola firma que fija los precios finales.",
+            "Disputa agresiva de marcas que ocasiona la quiebra del sector.",
+            "Acuerdo cerrado entre competidores para fijar tarifas mínimas."
         ]
     },
     {
         "pregunta": "¿Qué caracteriza a un monopolio?",
-        "correcta": "Una sola empresa controla la oferta de un bien o servicio sin competidores cercanos.",
+        "correcta": "La existencia de un único vendedor que controla la totalidad de la oferta de un bien o servicio imponiendo sus precios.",[span_28](start_span)[span_28](end_span)
         "incorrectas": [
-            "Un entorno donde operan pequeñas empresas compitiendo de forma equitativa.",
-            "La prohibición absoluta impuesta al ingreso de bienes importados al territorio.",
-            "Un modelo en el cual el consumidor determina discrecionalmente los precios."
+            "Un sector con pequeñas empresas compitiendo de forma equitativa.",
+            "La prohibición total de la entrada de artículos del extranjero.",
+            "Un modelo en el cual los compradores determinan las tarifas."
         ]
     },
     {
         "pregunta": "¿Qué es un oligopolio?",
-        "correcta": "Un mercado dominado por pocas empresas cuyas decisiones influyen directamente en las demás.",
+        "correcta": "Un mercado dominado por un número reducido de empresas grandes que compiten e influyen en los precios.",[span_29](start_span)[span_29](end_span)
         "incorrectas": [
-            "Una actividad comercial exenta por completo del pago de tributos estatales.",
-            "La venta especializada y exclusiva de artículos usados en mercados locales.",
-            "Un sector económico donde la propiedad pertenece únicamente a entidades públicas."
+            "Un negocio exento de obligaciones fiscales e impuestos directos.",
+            "La comercialización exclusiva de bienes usados dentro del local.",
+            "Un sector económico cuya propiedad pertenece por completo al Estado."
         ]
     },
     {
-        "pregunta": "¿Cómo funciona la ley de la oferta y la demanda?",
-        "correcta": "A mayor demanda o escasez el precio sube; ante exceso de oferta el precio tiende a bajar.",
+        "pregunta": "Cómo funciona la ley de la oferta y la demanda?",
+        "correcta": "Determina el precio de equilibrio; si la demanda sube el precio tiende a aumentar, si la oferta sube el precio tiende a bajar.",[span_30](start_span)[span_30](end_span)
         "incorrectas": [
-            "El valor comercial de los bienes es fijado únicamente por la regulación estatal.",
-            "El volumen de compra de los clientes aumenta proporcionalmente al alza de precio.",
-            "La interacción entre oferta y demanda no impacta las variaciones de mercado."
+            "El precio de los bienes es regulado por decreto gubernamental.",
+            "Las compras aumentan siempre que el precio sube en el mercado.",
+            "Las variaciones de la oferta no generan cambios en los precios."
         ]
     },
     {
         "pregunta": "¿Qué es una investigación de mercados?",
-        "correcta": "La recolección y análisis de datos sobre consumidores y competidores para tomar decisiones.",
+        "correcta": "Proceso sistemático de recolección y análisis de datos para mejorar la toma de decisiones dentro de la empresa.",[span_31](start_span)[span_31](end_span)
         "incorrectas": [
-            "El procedimiento de fiscalización efectuado en instalaciones de la entidad.",
-            "La revisión contable anual exigida por la administración tributaria nacional.",
-            "El conteo físico periódico del stock depositado en almacenes de la firma."
+            "Auditoría laboral realizada a las instalaciones administrativas.",
+            "Revisión de informes contables requerida por entes fiscales.",
+            "Conteo físico periódico de la mercancía ubicada en la bodega."
         ]
     },
     {
         "pregunta": "¿Cuál es la función de una muestra estadística?",
-        "correcta": "Analizar un subconjunto representativo de la población para inferir conclusiones válidas.",
+        "correcta": "Estudiar a una parte representativa de la población para extraer conclusiones válidas sin encuestar a todo el mercado.",[span_32](start_span)[span_32](end_span)
         "incorrectas": [
-            "Distribuir muestras sin costo a los consumidores para incentivar la opinión.",
-            "Someter a estudio al 100% de los integrantes pertenecientes a una comunidad.",
-            "Verificar la presencia de defectos técnicos dentro de la maquinaría de planta."
+            "Regalar productos a los clientes para conocer su opinión.",
+            "Encuestar obligatoriamente a la totalidad de la población.",
+            "Verificar defectos de fábrica en la maquinaria industrial."
         ]
     },
     {
         "pregunta": "¿Qué es el mercado meta u objetivo?",
-        "correcta": "El segmento de clientes al cual la empresa orienta prioritariamente sus productos.",
+        "correcta": "El segmento específico de consumidores al que la empresa dirige de forma prioritaria sus productos y esfuerzos.",[span_33](start_span)[span_33](end_span)
         "incorrectas": [
-            "El límite proyectado de ingresos en ventas que se planifica lograr al mes.",
-            "El país extranjero seleccionado prioritariamente para futuros proyectos de exportación.",
-            "La totalidad de la población residente en un municipio sin distinción de perfil."
+            "El monto máximo de ventas planificado para el cierre de mes.",
+            "El país extranjero elegido para la exportación de mercancía.",
+            "Toda la población de una ciudad sin aplicar ningún filtro."
         ]
     },
     {
         "pregunta": "¿Qué diferencia hay entre investigación cualitativa y cuantitativa?",
-        "correcta": "La cualitativa estudia opiniones y motivaciones; la cuantitativa mide datos y estadísticas.",
+        "correcta": "La cualitativa analiza motivaciones y percepciones; la cuantitativa mide datos numéricos y frecuencias.",[span_34](start_span)[span_34](end_span)
         "incorrectas": [
-            "La cualitativa utiliza indicadores numéricos y la cuantitativa emplea entrevistas.",
-            "La cualitativa es aplicable a corporaciones y la cuantitativa a microempresas.",
-            "Ambas metodologías se orientan de forma idéntica a cuantificar inventarios."
+            "La cualitativa usa datos numéricos y la cuantitativa entrevistas.",
+            "La cualitativa es para grandes empresas y la cuantitativa para pymes.",
+            "Ambas metodologías se orientan a medir la cantidad de inventario."
         ]
     },
     {
         "pregunta": "¿Qué es la segmentación de mercados?",
-        "correcta": "Dividir el mercado en grupos homogéneos para adaptar la oferta a sus características.",
+        "correcta": "Dividir el mercado total en grupos más pequeños de consumidores que comparten características o necesidades similares.",[span_35](start_span)[span_35](end_span)
         "incorrectas": [
-            "El cierre definitivo de unidades de negocio que no cumplen los márgenes mínimos.",
-            "La separación contable entre costos operativos directos y gastos administrativos.",
-            "La clasificación de proveedores en función de la escala de precios otorgados."
+            "El cierre de sucursales que no alcanzan las metas de venta.",
+            "La división de gastos administrativos y costos de producción.",
+            "La clasificación de proveedores en función de sus tarifas."
         ]
     }
 ]
@@ -446,13 +447,14 @@ st.markdown('<div class="titulo-compacto">La Empresa y sus Aspectos Económicos<
 if not st.session_state.juego_iniciado:
     st.subheader("⚙️ Configura tu Partida")
     
+    # Opciones de tiempo actualizadas a 15, 20 y 25 segundos
     dificultad = st.select_slider(
-        "Selecciona la Dificultad (Tiempo por pregunta):",
-        options=["Fácil (20 seg)", "Medio (15 seg)", "Difícil (10 seg)"],
-        value="Medio (15 seg)"
+        "Selecciona el Tiempo por pregunta:",
+        options=["15 seg", "20 seg", "25 seg"],[span_36](start_span)[span_36](end_span)
+        value="15 seg"
     )
     
-    tiempos = {"Fácil (20 seg)": 20, "Medio (15 seg)": 15, "Difícil (10 seg)": 10}
+    tiempos = {"15 seg": 15, "20 seg": 20, "25 seg": 25}[span_37](start_span)[span_37](end_span)
     st.session_state.tiempo_limite = tiempos[dificultad]
     
     st.info(f"⏱️ Tendrás **{st.session_state.tiempo_limite} segundos** por cada pregunta.")
@@ -525,19 +527,19 @@ else:
             
             if sel == q['correcta']:
                 st.markdown(f'<div class="card-correcta">{q["correcta"]}</div>', unsafe_allow_html=True)
-                audio_res = texto_a_audio(f"¡oooficial, esa misma es! {q['correcta']}")
+                audio_res = texto_a_audio(f"¡Correcto! {q['correcta']}")
                 reproducir_audio_rapido(audio_res, velocidad=1.5)
 
             elif sel is not None:
                 st.markdown(f'<div class="card-incorrecta">{sel}</div>', unsafe_allow_html=True)
                 st.markdown(f'<div class="card-correcta">{q["correcta"]}</div>', unsafe_allow_html=True)
-                audio_res = texto_a_audio(f"jajajaja no. La respuesta correcta es: {q['correcta']}")
+                audio_res = texto_a_audio(f"Incorrecto. La respuesta correcta es: {q['correcta']}")
                 reproducir_audio_rapido(audio_res, velocidad=1.5)
 
             else:
-                st.markdown('<div class="card-incorrecta">⏰ ¡piensa mas rapido cara de nance!</div>', unsafe_allow_html=True)
+                st.markdown('<div class="card-incorrecta">⏰ ¡Tiempo Agotado!</div>', unsafe_allow_html=True)
                 st.markdown(f'<div class="card-correcta">{q["correcta"]}</div>', unsafe_allow_html=True)
-                audio_res = texto_a_audio(f"muy lento. La respuesta correcta es: {q['correcta']}")
+                audio_res = texto_a_audio(f"Se agotó el tiempo. La respuesta correcta es: {q['correcta']}")
                 reproducir_audio_rapido(audio_res, velocidad=1.5)
 
             st.markdown("---")
